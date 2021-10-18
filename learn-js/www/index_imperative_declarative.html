@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const nums = [1,2,3,4,5];
+
+  const doubleNums = [];
+
+  // imperative code
+  for (let x=0; x<nums.length; x++) {
+  
+    doubleNums.push(nums[x] * 2);
+  }
+
+  console.log(doubleNums); 
+
+  // declarative code
+  const doubleNums2 = nums.map(function(x) {
+    return x * 2;
+  });
+
+  console.log(doubleNums2);
+
+  nums.forEach(function(x) {
+    console.log(x);
+  });
+
+  console.log(nums);
+
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const nums = [1,2,3,4,5];
+  
+  Object.prototype.newProp = 'test';
+
+
+
+  Array.prototype.map = function() {
+    console.log("you have been hacked");
+    return [ "this", "is", "cool" ];
+  };
+
+
+  console.log(nums.map(function (x) { return x * 2; }));
+
+  console.log(nums.newProp);
+
+
+
+
+
+</script>

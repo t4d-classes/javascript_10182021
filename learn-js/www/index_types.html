@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  let t;
+
+  console.log(typeof t);
+
+  t = 'Hello, World!';
+  console.log(typeof t);
+
+  t = 5;
+  console.log(typeof t);
+
+  t = true;
+  console.log(typeof t);
+
+  t = Symbol();
+  console.log(typeof t);
+
+  t = 42n;
+  console.log(typeof t);
+
+  t = null;
+  console.log(typeof t);
+
+  t = {
+    firstName: 'Bob',
+    lastName: 'Smith',
+  };
+  console.log(typeof t);
+
+  t = [1,2,3,4,5];
+  console.log(typeof t);
+  console.log(t instanceof Array);
+
+  t = function() { }; // functions are objects
+  console.log(typeof t);
+
+
+
+
+
+
+  
+  
+
+
+
+
+</script>
