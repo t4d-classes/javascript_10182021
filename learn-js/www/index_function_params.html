@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  "use strict";
+  /*
+  // ... rest operator
+  // let a = 1
+  const doIt = (a,b,...c) => {
+    // console.log(arguments);
+    console.log(a,b,c);
+    console.log('do it');
+  }
+
+  // ... spread operator
+  doIt(...[1,2,3,4,5]);
+  */
+
+  const [ ...others, first, second ] = [1,2,3,4,5];
+  console.log(first, second,others);
+
+  const nums = [7,8,...others];
+  console.log(nums);
+
+  let person = {
+    firstName: 'Bob',
+    lastName: 'Martin',
+    title: 'Uncle',
+  };
+
+  let originalPerson = person;
+
+  // person.firstName = 'Robert';
+
+  
+
+  person = {
+    ...person,
+    // firstName: person.firstName,
+    // lastName: person.lastName,
+    // title: person.title,
+    firstName: 'Robert',
+  };
+
+
+
+ 
+</script>
+

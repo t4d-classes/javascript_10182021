@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const t = true;
+
+  const x = false;
+
+  console.log(t, x);
+
+  if ([]) {
+    console.log("truthy");
+  } else {
+    console.log("falsy");
+  }
+
+  // falsy values
+  // empty string
+  // 0
+  // false
+  // undefined
+  // null
+  // NaN
+
+  const person = {
+    fn: '',
+    ln: 'Smith',
+  };
+
+  person.age = 23;
+
+  console.log(person.fn);
+
+  // if (person.fn) {
+  //if (person.hasOwnProperty('fn')) {
+  if (0 || "test") {
+    console.log(person.fn);
+  } else {
+    console.log("person does not have a first name");
+  } 
+
+  console.log(1 && "test");
+
+  if ("0" == 0) {
+    console.log("equal");
+  } else {
+    console.log("not equal");
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

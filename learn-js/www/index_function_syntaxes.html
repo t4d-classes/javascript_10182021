@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  "use strict";
+
+  // function declaration
+  function doIt() {
+    console.log("do it");
+  }
+
+  doIt();
+
+
+  // function expression
+  const doIt2 = function() {
+    console.log("do it 2");
+  };
+
+  doIt2();
+
+  // arrow function
+  const doIt3 = () => {
+    console.log("do it 3");
+  };
+
+  // generator function
+  function* doIt4() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+  
+</script>
+

@@ -3,25 +3,41 @@
 <p>Open your browser developer tools to see the console message.</p> 
 
 <script>
-  /*
-  const name = "tes't";
-  const name2 = 'tes"t';
 
-  console.log(name);
-  console.log(name2);
-  console.log(name.length);
-  console.log(name.startsWith('te'));
-  */
+  "use strict";
 
-  console.log(Number.EPSILON > Math.abs((0.1 + 0.2) - 0.3));
+  
+  // call-site this, the value of this is determined by how the function is called
+  function doIt() {
+    console.log(this);
 
-  console.log(1/0);
-  console.log(Infinity + Infinity);
-  console.log(Infinity === Infinity);
-  console.log(Infinity / Infinity);
-  console.log(NaN === NaN);
-  console.log(isNaN(parseInt('zzzzz')));
-  console.log(typeof NaN);
+    // const that = this;
 
+    // function inner() {
+    //   console.log(that);
+    //}
+
+    // lexical this - value of this from the surrounding lexical scope
+    const inner = () => {
+      console.log(this);
+    };
+  
+    inner();
+  }
+
+
+  // doIt();
+
+  // window.doIt();
+
+  const o = {
+    id: 2,
+    // doIt: doIt,
+    doIt,
+  };
+
+  o.doIt();
+
+  // console.log(window.doIt === o.doIt);
 
 </script>

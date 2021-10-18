@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  function doIt(outputFn) {
+
+    function doOutput(msg) {
+      outputFn("App >> " + msg);
+    }
+    
+    return doOutput;
+  }
+
+  function consoleLog(logMsg) {
+    console.log(logMsg);
+  }
+
+  const doIt = outputFn => msg => outputFn("App >> " + msg);
+
+  function consoleError(errorMsg) {
+    console.error(errorMsg);
+  }
+
+
+  const appConsoleLog = doIt(logMsg => console.log(logMsg));
+
+  const appConsoleError = doIt(consoleError);
+
+  appConsoleLog("JavaScript is cool!");
+  appConsoleError("This is fun!");
+ 
+</script>
+

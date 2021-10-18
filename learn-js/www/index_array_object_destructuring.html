@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+
+  function useState() {
+  
+    const stateData = { /* ... state data */ };
+    const stateUpdateFunc = function(newData) { stateData = newData};
+  
+    return [ stateData, stateUpdateFunc ];
+  }
+
+
+  function useState2() {
+
+    const someStateData = { /* ... state data */ };
+    const someStateUpdateFunc = function(newData) { stateData = newData};
+
+    return { 
+      stateData: someStateData,
+      stateUpdateFunc: someStateUpdateFunc
+    };
+  }
+
+  const [ formData, setFormData ] = useState();
+  const [ userData, setUserData ] = useState();
+
+  const { stateData: formData2, stateUpdateFunc: setFormData2 } = useState2();
+  const { stateData: userData2, stateUpdateFunc: setUserData2 } = useState2();
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
