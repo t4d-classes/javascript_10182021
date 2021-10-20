@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+  const asyncTask = (result) => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(result);
+      }, delay());
+    });
+  };
+
+ 
+  /* 
+  const allCars = () => {
+  
+    return fetch('http://localhost:5050/cars')
+      .then(res => res.json());
+  };
+
+  const allCars = async () => {
+    const res = await fetch('http://localhost:5050/cars');
+    const cars = await res.json();
+    return cars;
+  };
+
+  allCars().then(cars => console.log(cars));
+
+  */
+
+
+  function* nums() {
+
+    let t;  
+
+    console.log('generate async num');
+    t = yield asyncTask(1);
+    console.log('t =', t);
+    console.log('generate async num');
+    t = yield asyncTask(2);
+    console.log('t =', t);
+    console.log('generate async num');
+    t = yield asyncTask(3);
+    console.log('t =', t);
+
+  }
+
+  const gen = nums();
+
+  gen.next().value
+    .then(result => gen.next(result).value)
+    .then(result => gen.next(result).value)
+    .then(result => gen.next(result).value)
+    .then(() => console.log('all done'));
+
+</script>
+

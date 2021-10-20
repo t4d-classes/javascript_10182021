@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+
+  class Promise {
+  
+    constructor(asyncOpFn) {
+
+      this._resolveFns = [];
+      this._rejectFns = [];
+    
+      const resolveFn = result => {
+        this._resolveFns.forEach(fn => fn(result));
+      };
+
+      const rejectFn = result => {
+        this._rejectFns.forEach(fn => fn(result));
+      };
+
+
+      asyncOpFn(resolveFn, rejectFn);
+    }
+
+    then(fn) {
+      this._resolveFns.push(fn);
+    }
+
+    catch(fn) {
+      this._rejectFns.push(fn);
+    }
+  }
+  
+
+  const p = new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+      resolve('a');
+      // reject('a');
+    }, delay());
+
+  });
+
+  p.then(result => {
+  
+    console.log(result);
+  });
+  //.catch(result => {
+  //  console.log('rejected: ', result);
+  //});
+
+
+  console.log('cool');
+
+
+
+
+
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  "use strict";
+
+  /*
+  const parent = {
+    name: 'parent',
+    displayAmt: function() {
+      console.log("amt > " + this.amt);
+    },
+  };
+
+  const child = Object.create(parent);
+
+  child.name = 'child';
+  child.amt = 1000;
+
+  
+  const child2 = Object.create(parent);
+  child2.name = 'child2';
+  child2.amt = 1500;
+
+
+  child.displayAmt();
+  child2.displayAmt();
+  
+  console.log(child.displayAmt === child2.displayAmt);
+
+  console.log(child2);
+
+  /*
+
+  console.log(child.amt);
+  console.log(child);
+
+  parent.amt = 1000;
+
+  console.log(child.amt);
+
+  child.amt = 3000;
+
+  console.log(child.amt);
+  console.log(child);
+
+  delete child.amt;
+
+  console.log(child);
+  console.log(child.amt);
+  */
+
+
+
+  class Parent {
+
+    amt = 2000;
+
+    constructor() {
+      this.name = 'parent';
+      //this.amt = 2000;
+      this._someInternalProp = 'test';
+    } 
+
+    getInfo() {
+    
+      console.log(this.name +  ' ' + this.amt);
+    }
+ 
+  }
+
+  Parent.prototype.SOME_CONSTANT = 3.14;
+
+  class Child extends Parent {
+  
+    constructor(name) {
+      super();
+      this.name = name;
+    }
+
+    getRecordInfo() {
+      console.log(this.name);
+      console.log(this.SOME_CONSTANT);
+    }
+  }
+
+  const c = new Child('test');
+  c.getRecordInfo();
+  c.getInfo();
+
+  const c2 = new Child('test2');
+  c2.getRecordInfo();
+  c2.getInfo();
+
+
+  console.log(c.amt);
+  console.log(c);
+  console.log(c2);
+  console.log(c.__proto__ === c2.__proto__);
+
+
+
+
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  let i = 5;
+
+  const outer = () => {
+  
+    let t = 2;
+
+    setTimeout(function updateValues() {
+      console.log('update values');
+      t = 4;
+      i = 8;
+    }, 2000);
+
+    const inner = () => {
+      console.log(t);
+      console.log(i);
+    };
+  
+    return inner;
+
+    //inner();
+
+  };
+
+  const innerFn = outer();
+
+  innerFn();
+
+  setTimeout(function callInnerAgain() {
+  
+    innerFn();
+  }, 4000);
+
+  console.dir(innerFn);
+
+
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+  const taskA = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve("a");
+      }, delay());
+    });
+  };
+  
+  const taskB = () => {
+    
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject("b");
+      }, delay());
+    });
+  };
+  
+  const taskC = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve("c");
+      }, delay());
+    });
+  };
+
+
+  Promise.allSettled([ taskA(), taskB(), taskC() ])
+    .then(results => {
+      console.log(results);
+      console.log("all done");
+    })
+    .catch(results => {
+      console.log(results);
+      console.log("one reject");
+    });
+
+</script>

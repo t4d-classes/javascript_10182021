@@ -1,43 +1,13 @@
 <!DOCTYPE html>
 
-<p>Open your browser developer tools to see the console message.</p> 
+<html>
+  <head>
+    <title>Some Page</title>
+    <!--<script type="module" src="js/utils.js"></script>-->
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    Some Content
+  </body>
+</html>
 
-<script>
-
-  "use strict";
-
-  
-  // call-site this, the value of this is determined by how the function is called
-  function doIt() {
-    console.log(this);
-
-    // const that = this;
-
-    // function inner() {
-    //   console.log(that);
-    //}
-
-    // lexical this - value of this from the surrounding lexical scope
-    const inner = () => {
-      console.log(this);
-    };
-  
-    inner();
-  }
-
-
-  // doIt();
-
-  // window.doIt();
-
-  const o = {
-    id: 2,
-    // doIt: doIt,
-    doIt,
-  };
-
-  o.doIt();
-
-  // console.log(window.doIt === o.doIt);
-
-</script>

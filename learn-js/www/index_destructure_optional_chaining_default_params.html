@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const person = {
+    firstName: 'Bob',
+    lastName: 'Smith',
+    address: {
+      street: '123 Oak Lane',
+      city: 'Mountain View',
+    },
+    //contactInfo: {
+      //phone: '111-111-1111',
+      //email: 'bob@bob.com',
+    //}
+  };
+
+
+  const address = "something else";
+
+  const { address: { street } } = person;
+
+  // console.log(street);
+
+
+  //             variable = expression
+  const { title, author } = { title: 'Some Book', author: 'Some Author' };
+
+
+  const doIt = ({ name }, num) => console.log(name);
+
+
+  doIt({ name: 'some name', info: 'test' }, 2);
+
+
+  console.log(person?.contactInfo?.phone);
+
+  // default param - argument is undefined 
+  function doIt2(value = "some default") {
+
+    // const v = value || -1; // avoid this because it picks up falsy values
+
+    // double question mark - variable is null or undefined
+    const v = value ?? -1;
+    console.log(v);
+  }
+
+
+  doIt2(undefined);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+

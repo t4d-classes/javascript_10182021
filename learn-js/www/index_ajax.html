@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+ 
+  /* 
+  const allCars = () => {
+  
+    return fetch('http://localhost:5050/cars')
+      .then(res => res.json());
+  };
+  */
+
+  const allCars = async () => {
+    const res = await fetch('http://localhost:5050/cars');
+    const cars = await res.json();
+    return cars;
+  };
+
+  const oneCar = (carId) => {
+  
+    return fetch('http://localhost:5050/cars/' + encodeURIComponent(carId))
+      .then(res => res.json());
+  };
+
+  const appendCar = (car) => {
+  
+    return fetch('http://localhost:5050/cars', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(car),
+    })
+      .then(res => res.json());
+  };
+
+
+  allCars().then(cars => console.log(cars));
+  oneCar(1).then(car => console.log(car));
+  appendCar({
+    make: 'Nissan',
+    model: 'Pathfinder',
+    year: 2016,
+    color: 'blue',
+    price: 45000,
+  }).then(newCar => console.log(newCar));
+
+</script>
+

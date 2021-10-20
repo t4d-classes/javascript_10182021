@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<p>Open your browser developer tools to see the console message.</p> 
+
+<script>
+
+  const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+  const taskA = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve("a");
+      }, delay());
+    });
+  };
+  
+  const taskB = () => {
+    
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve("b");
+      }, delay());
+    });
+  };
+  
+  const taskC = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve("c");
+      }, delay());
+    });
+  };
+
+  taskA()
+    .then(result => { console.log(result); return taskB(); })
+    .then(result => { console.log(result); return taskC(); })
+    .then(result => { console.log(result); });
+
+
+
+</script>
